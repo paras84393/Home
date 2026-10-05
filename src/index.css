@@ -1,0 +1,308 @@
+@import "tailwindcss";
+
+/* =========================================================
+   XNTROVA — GLOBAL DESIGN SYSTEM
+   ========================================================= */
+
+:root {
+  --x-dark: #071a21;
+  --x-dark-soft: #0c252d;
+  --x-ink: #10232a;
+
+  --x-blue: #087ea4;
+  --x-blue-light: #e8f5f8;
+
+  --x-gold: #f5a623;
+  --x-gold-light: #fff4df;
+
+  --x-white: #ffffff;
+  --x-paper: #f7f8f6;
+  --x-muted: #68777d;
+  --x-border: #dfe6e8;
+
+  --container: 1240px;
+}
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background: var(--x-paper);
+  color: var(--x-ink);
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: var(--x-gold);
+  color: var(--x-dark);
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #edf1f2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #aebdc1;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #71868c;
+}
+
+/* =========================================================
+   COMMON LAYOUT
+   ========================================================= */
+
+.container-x {
+  width: min(calc(100% - 40px), var(--container));
+  margin-inline: auto;
+}
+
+.section-x {
+  padding-block: 110px;
+}
+
+.section-dark {
+  background: var(--x-dark);
+  color: var(--x-white);
+}
+
+.section-paper {
+  background: var(--x-paper);
+}
+
+.section-white {
+  background: var(--x-white);
+}
+
+/* =========================================================
+   SECTION LABEL
+   ========================================================= */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  color: var(--x-blue);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1;
+
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+
+  background: var(--x-gold);
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+:focus-visible {
+  outline: 3px solid rgba(245, 166, 35, 0.45);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   FORM ELEMENTS
+   ========================================================= */
+
+::placeholder {
+  color: #91a0a5;
+}
+
+input,
+textarea,
+select {
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--x-blue) !important;
+  box-shadow: 0 0 0 3px rgba(8, 126, 164, 0.08);
+}
+/* =========================================
+   INFINITE TOOLS MARQUEE
+========================================= */
+
+.tools-track {
+  display: flex;
+  width: max-content;
+  animation: toolsMarquee 8s linear infinite;
+  will-change: transform;
+}
+
+.clients-track {
+  display: flex;
+  width: max-content;
+  animation: clientsMarquee 8s linear infinite;
+  will-change: transform;
+}
+
+
+/* Pause only when mouse is actually over the track */
+.tools-track:hover,
+.clients-track:hover {
+  animation-play-state: paused;
+}
+
+
+/* Move exactly half because the content is duplicated */
+@keyframes toolsMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes clientsMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .tools-track {
+    animation-duration: 8s;
+  }
+
+  .clients-track {
+    animation-duration: 8s;
+  }
+}
+
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .tools-track,
+  .clients-track {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .container-x {
+    width: min(calc(100% - 28px), var(--container));
+  }
+
+  .section-x {
+    padding-block: 76px;
+  }
+}
+/* =========================================
+   CLIENT LOGOS
+========================================= */
+
+.client-card {
+  position: relative;
+}
+
+.client-logo {
+  display: block;
+  object-fit: contain;
+  filter: none;
+}
+
+.client-card:hover .client-logo {
+  transform: scale(1.1);
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
