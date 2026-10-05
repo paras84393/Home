@@ -15,7 +15,7 @@ import Footer from "../components/Footer";
 import Testimonials from "../components/Testimonials";
 import FAQ from "../components/FAQ";
 import Clients from "../components/Clients";
-import GrowthApproach from "../components/GrowthModel";
+
 import DigitalAudit from "../components/DigitalAudit";
 
 
