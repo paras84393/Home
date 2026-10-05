@@ -5,13 +5,13 @@ import About from "../components/About";
 import TopBar from "../components/TopBar";
 import Services from "../components/Services";
 import WhyChooseUs from "../components/WhyChooseUs";
-import GrowthModel from "../components/GrowthModel";
 
-import Portfolio from "../components/Portfolio";
+
+
 import ToolsAndClients from "../components/ToolsAndClients";
 
 import Footer from "../components/Footer";
-import Contact from "../components/Contact";
+
 import Testimonials from "../components/Testimonials";
 import FAQ from "../components/FAQ";
 import Clients from "../components/Clients";
